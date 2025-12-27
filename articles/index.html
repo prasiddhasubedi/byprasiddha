@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Writer's Portfolio</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Article Collection</h1>
+            <p>Thought-provoking pieces on culture, technology, and life</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../poetry/index.html">Poetry</a></li>
+                <li><a href="../novels/index.html">Novels</a></li>
+                <li><a href="index.html">Articles</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="works-list" data-aos="fade-up">
+                <h2>Featured Articles</h2>
+                <div id="articles-content">
+                    <ul>
+                        <li data-aos="fade-up" data-aos-delay="100">
+                            <a href="the-art-of-storytelling.html">The Art of Storytelling in the Digital Age</a>
+                            <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">
+                                How traditional narrative techniques adapt to modern platforms and audiences
+                            </p>
+                            <span class="work-badge">Writing</span>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="200">
+                            <a href="#article2">Finding Creativity in Constraints</a>
+                            <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">
+                                Why limitations can be the best catalyst for innovative thinking
+                            </p>
+                            <span class="work-badge">Creativity</span>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="300">
+                            <a href="#article3">The Power of Authentic Characters</a>
+                            <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">
+                                Creating believable characters that resonate with readers
+                            </p>
+                            <span class="work-badge">Craft</span>
+                        </li>
+                        <li data-aos="fade-up" data-aos-delay="400">
+                            <a href="#article4">Writing as a Journey of Self-Discovery</a>
+                            <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">
+                                How the creative process reveals truths about ourselves
+                            </p>
+                            <span class="work-badge">Reflection</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;" data-aos="fade-up">
+                <a href="../index.html" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Writer's Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        console.log('[DEBUG] Articles page loaded');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('[DEBUG] Articles page DOM ready');
+            
+            const articlesContent = document.getElementById('articles-content');
+            if (articlesContent) {
+                console.log('[DEBUG] Articles content container found');
+                console.log('[DEBUG] Number of articles displayed:', articlesContent.querySelectorAll('li').length);
+            } else {
+                console.error('[ERROR] Articles content container not found');
+            }
+        });
+    </script>
+</body>
+</html>

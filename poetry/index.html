@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poetry - Writer's Portfolio</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -19,37 +20,37 @@
             <ul>
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="index.html">Poetry</a></li>
-                <li><a href="#novels">Novels</a></li>
-                <li><a href="#articles">Articles</a></li>
+                <li><a href="../novels/index.html">Novels</a></li>
+                <li><a href="../articles/index.html">Articles</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
         <div class="container">
-            <div class="works-list">
+            <div class="works-list" data-aos="fade-up">
                 <h2>Available Poems</h2>
                 <ul>
-                    <li>
+                    <li data-aos="fade-up" data-aos-delay="100">
                         <a href="my-first-poem.html">My First Poem</a>
                         <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">A reflection on new beginnings and the beauty of simple moments</p>
                     </li>
-                    <li>
+                    <li data-aos="fade-up" data-aos-delay="200">
                         <a href="#poem2">Whispers of the Wind</a>
                         <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">Nature's voice carries stories untold</p>
                     </li>
-                    <li>
+                    <li data-aos="fade-up" data-aos-delay="300">
                         <a href="#poem3">Shadows and Light</a>
                         <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">The duality of existence explored through verse</p>
                     </li>
-                    <li>
+                    <li data-aos="fade-up" data-aos-delay="400">
                         <a href="#poem4">Midnight Musings</a>
                         <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">Thoughts that emerge in the quiet of night</p>
                     </li>
                 </ul>
             </div>
 
-            <div style="margin-top: 30px;">
+            <div style="margin-top: 30px;" data-aos="fade-up">
                 <a href="../index.html" class="back-link">← Back to Home</a>
             </div>
         </div>
@@ -60,5 +61,8 @@
             <p>&copy; 2025 Writer's Portfolio. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

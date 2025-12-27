@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writer's Portfolio - Home</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -19,33 +20,33 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="poetry/index.html">Poetry</a></li>
-                <li><a href="#novels">Novels</a></li>
-                <li><a href="#articles">Articles</a></li>
+                <li><a href="novels/index.html">Novels</a></li>
+                <li><a href="articles/index.html">Articles</a></li>
             </ul>
         </div>
     </nav>
 
     <main>
         <div class="container">
-            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 20px;">Explore My Writing</h2>
+            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 20px;" data-aos="fade-down">Explore My Writing</h2>
             
             <div class="categories">
-                <div class="category-card">
-                    <h2>Poetry</h2>
+                <div class="category-card" data-aos="fade-up" data-aos-delay="100">
+                    <h2>📖 Poetry</h2>
                     <p>Explore a collection of poems expressing emotions, observations, and reflections on life.</p>
                     <a href="poetry/index.html">View Poetry</a>
                 </div>
 
-                <div class="category-card">
-                    <h2>Novels</h2>
+                <div class="category-card" data-aos="fade-up" data-aos-delay="200">
+                    <h2>📚 Novels</h2>
                     <p>Dive into immersive stories and narratives that transport you to different worlds.</p>
-                    <a href="#novels">View Novels</a>
+                    <a href="novels/index.html">View Novels</a>
                 </div>
 
-                <div class="category-card">
-                    <h2>Articles</h2>
+                <div class="category-card" data-aos="fade-up" data-aos-delay="300">
+                    <h2>✍️ Articles</h2>
                     <p>Read thought-provoking articles on various topics, from culture to technology.</p>
-                    <a href="#articles">View Articles</a>
+                    <a href="articles/index.html">View Articles</a>
                 </div>
             </div>
         </div>
@@ -56,5 +57,8 @@
             <p>&copy; 2025 Writer's Portfolio. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
