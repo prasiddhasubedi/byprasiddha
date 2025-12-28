@@ -250,6 +250,7 @@ body {
     justify-content: center;
     overflow: hidden;
     padding-top: 80px;
+    background: linear-gradient(135deg, #fef5e7 0%, #e8f5f0 25%, #f0e8f5 50%, #fef0e8 75%, #e8f0f5 100%);
 }
 
 .hero-background {
@@ -268,9 +269,11 @@ body {
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, 
-        rgba(99, 102, 241, 0.15) 0%, 
-        rgba(139, 92, 246, 0.15) 50%,
-        rgba(236, 72, 153, 0.15) 100%);
+        rgba(255, 183, 197, 0.12) 0%, 
+        rgba(255, 218, 193, 0.12) 25%,
+        rgba(226, 240, 203, 0.12) 50%,
+        rgba(181, 234, 215, 0.12) 75%,
+        rgba(199, 206, 234, 0.12) 100%);
 }
 
 .animated-shapes {
@@ -285,7 +288,7 @@ body {
 .shape {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    background: linear-gradient(135deg, rgba(255, 183, 197, 0.08), rgba(181, 234, 215, 0.08));
     filter: blur(60px);
     animation: float 20s ease-in-out infinite;
 }
@@ -352,20 +355,38 @@ body {
 
 .title-line {
     display: block;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    background: linear-gradient(135deg, 
+        #FF6B9D 0%, 
+        #C368F5 12.5%, 
+        #6B8CFF 25%, 
+        #47D6E8 37.5%, 
+        #5FE6A0 50%, 
+        #FFD93D 62.5%, 
+        #FF9668 75%, 
+        #FF6B9D 87.5%, 
+        #C368F5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    background-size: 200% 200%;
-    animation: gradientShift 5s ease infinite;
+    background-size: 400% 400%;
+    animation: vibrantColorShift 8s ease-in-out infinite;
 }
 
-@keyframes gradientShift {
-    0%, 100% {
+@keyframes vibrantColorShift {
+    0% {
         background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 25%;
     }
     50% {
         background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 75%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
 
@@ -432,6 +453,8 @@ body {
     color: var(--medium-gray);
     font-size: 0.875rem;
     animation: fadeIn 2s ease 1s both;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .scroll-arrow {
@@ -1339,6 +1362,11 @@ footer p {
         width: 100%;
         max-width: 280px;
         text-align: center;
+    }
+    
+    .scroll-indicator {
+        bottom: var(--spacing-md);
+        font-size: 0.75rem;
     }
     
     .premium-categories {
