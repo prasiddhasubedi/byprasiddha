@@ -585,7 +585,7 @@ function initCommentSection(button, pageId) {
             if (!commentText) return;
             
             const comment = {
-                id: Date.now().toString() + '-' + Math.random().toString(36).substr(2, 9),
+                id: Date.now().toString() + '-' + Math.random().toString(36).substring(2, 11),
                 author: 'Anonymous Reader',
                 text: commentText,
                 date: new Date().toISOString()
@@ -645,20 +645,21 @@ function initShareButton(button) {
  * Handle sharing to different platforms
  */
 function handleShare(platform) {
-    const url = encodeURIComponent(window.location.href);
+    const url = window.location.href;
+    const encodedUrl = encodeURIComponent(url);
     const title = encodeURIComponent(document.title);
     
     const shareUrls = {
-        twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
-        facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-        email: `mailto:?subject=${title}&body=Check out this content: ${url}`,
+        twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${title}`,
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+        linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+        email: `mailto:?subject=${title}&body=Check out this content: ${encodedUrl}`,
         copy: url
     };
     
     if (platform === 'copy') {
         // Copy to clipboard
-        navigator.clipboard.writeText(decodeURIComponent(url)).then(() => {
+        navigator.clipboard.writeText(url).then(() => {
             showToast('✓', 'Link copied to clipboard!');
             console.log('[PREMIUM] Link copied to clipboard');
         }).catch(err => {
