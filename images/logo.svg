@@ -1,0 +1,11 @@
+<svg width="120" height="40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="40" fill="transparent"/>
+  
+  <!-- Quill icon -->
+  <path d="M 15 8 Q 18 5 22 8 L 20 18 Q 19 22 15 22 L 14 20 L 15 8 Z" fill="#ffffff" stroke="#ffffff" stroke-width="0.5"/>
+  <line x1="14" y1="20" x2="12" y2="28" stroke="#ffffff" stroke-width="1.5"/>
+  
+  <!-- Text "WP" for Writer's Portfolio -->
+  <text x="32" y="28" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#ffffff">WP</text>
+</svg>
