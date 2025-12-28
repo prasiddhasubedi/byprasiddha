@@ -29,7 +29,7 @@ This project uses the following dependencies:
 
 To install npm dependencies:
 ```bash
-npm install framer-motion
+npm install
 ```
 
 ## Features
