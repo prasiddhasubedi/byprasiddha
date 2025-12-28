@@ -232,7 +232,7 @@ function initSmoothScrolling() {
             const href = this.getAttribute('href');
             
             // Skip if href is just "#"
-            if (href === '#' || href.length <= 1) {
+            if (href === '#') {
                 return;
             }
             
@@ -286,6 +286,13 @@ function initBackToTop() {
 // ==========================================
 // SCROLL EFFECTS
 // ==========================================
+// Animation configuration constants
+const PARALLAX_SPEED = 0.5;
+const PARALLAX_FADE = 0.8;
+const CARD_PARALLAX_INTENSITY = 10;
+const CARD_HOVER_SCALE = 1.1;
+const CARD_HOVER_ROTATION = 5;
+
 function initScrollEffects() {
     // Parallax effect for hero section
     const hero = document.querySelector('.premium-hero');
@@ -294,8 +301,8 @@ function initScrollEffects() {
             const scrolled = window.pageYOffset;
             const heroContent = hero.querySelector('.hero-content');
             if (heroContent && scrolled < hero.offsetHeight) {
-                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-                heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight) * 0.8;
+                heroContent.style.transform = `translateY(${scrolled * PARALLAX_SPEED}px)`;
+                heroContent.style.opacity = 1 - (scrolled / hero.offsetHeight) * PARALLAX_FADE;
             }
         });
     }
@@ -353,7 +360,7 @@ function initCardAnimations() {
             
             const icon = card.querySelector('.card-icon');
             if (icon) {
-                icon.style.transform = `translate(${deltaX * 10}px, ${deltaY * 10}px) scale(1.1) rotate(5deg)`;
+                icon.style.transform = `translate(${deltaX * CARD_PARALLAX_INTENSITY}px, ${deltaY * CARD_PARALLAX_INTENSITY}px) scale(${CARD_HOVER_SCALE}) rotate(${CARD_HOVER_ROTATION}deg)`;
             }
         });
         
