@@ -592,7 +592,7 @@ const recentPosts = [
         description: "A contemplative poem celebrating the timeless beauty of nature's gentle hills",
         type: "poetry",
         category: "Poetry",
-        date: "2025-01-15",
+        date: "2025-12-30",
         url: "poetry/Serene%20Beauty/index.html"
     }
 ];
