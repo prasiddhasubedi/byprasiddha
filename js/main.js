@@ -477,7 +477,7 @@ console.log('[PREMIUM] Main script initialization complete');
 // Check if New Year features should be active
 function isNewYearActive() {
     const now = new Date();
-    const endDate = new Date('2026-01-04T00:00:00'); // Jan 4, 2026 midnight (day after Jan 3)
+    const endDate = new Date('2026-01-04T00:00:00Z'); // Jan 4, 2026 midnight UTC (day after Jan 3)
     return now < endDate;
 }
 

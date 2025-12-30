@@ -2627,7 +2627,7 @@ footer p {
 @media (max-width: 480px) {
     .new-year-trigger {
         position: fixed;
-        bottom: var(--spacing-lg);
+        bottom: calc(var(--spacing-lg) + env(safe-area-inset-bottom, 0px));
         left: 50%;
         transform: translateX(-50%);
         margin-left: 0;
