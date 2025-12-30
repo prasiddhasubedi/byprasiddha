@@ -336,6 +336,21 @@ body {
     }
 }
 
+@keyframes floatBubble {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(20px, -20px);
+    }
+    50% {
+        transform: translate(-20px, 20px);
+    }
+    75% {
+        transform: translate(20px, 20px);
+    }
+}
+
 .hero-content {
     position: relative;
     z-index: 1;
@@ -1891,7 +1906,7 @@ footer p {
     height: 500px;
     background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
     border-radius: 50%;
-    animation: float 15s ease-in-out infinite;
+    animation: floatBubble 15s ease-in-out infinite;
 }
 
 .recently-posted-section::after {
@@ -1903,7 +1918,7 @@ footer p {
     height: 400px;
     background: radial-gradient(circle, rgba(236, 72, 153, 0.06) 0%, transparent 70%);
     border-radius: 50%;
-    animation: float 18s ease-in-out infinite reverse;
+    animation: floatBubble 18s ease-in-out infinite reverse;
 }
 
 .recently-posted-section .section-title {
