@@ -56,7 +56,6 @@ function initReadingProgress() {
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = (winScroll / height) * 100;
     
-    // You can add a progress bar here if desired
     ticking = false;
   }
   
