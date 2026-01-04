@@ -151,8 +151,13 @@ Add this HTML structure where you want the engagement features to appear (typica
 After the Firebase SDK scripts and before the closing `</body>` tag, add:
 
 ```html
+<!-- Firebase Configuration -->
+<script src="../../js/firebase-config.js"></script>
+<!-- Engagement Features -->
 <script src="../../js/firebase-engagement.js"></script>
 ```
+
+**Note:** Make sure you've created `firebase-config.js` from the example file (see QUICKSTART.md).
 
 ### 5. Complete Example
 
@@ -189,6 +194,8 @@ Here's what your HTML structure should look like:
   <!-- Your existing scripts -->
   <script src="script.js"></script>
   
+  <!-- Firebase Configuration -->
+  <script src="../../js/firebase-config.js"></script>
   <!-- Engagement script -->
   <script src="../../js/firebase-engagement.js"></script>
 </body>
@@ -206,7 +213,8 @@ The paths in the example assume your poetry pages are in a structure like:
 
 If your structure is different, adjust the paths accordingly:
 - CSS: `../../css/engagement.css` (go up 2 levels to reach css folder)
-- JS: `../../js/firebase-engagement.js` (go up 2 levels to reach js folder)
+- JS Config: `../../js/firebase-config.js` (go up 2 levels to reach js folder)
+- JS Engagement: `../../js/firebase-engagement.js` (go up 2 levels to reach js folder)
 - Firebase SDK: No adjustment needed (uses CDN)
 
 ### Styling Customization
@@ -237,9 +245,10 @@ You can customize the appearance by overriding CSS variables in your poem's `sty
 
 ### Stats Showing 0
 
-1. Ensure Firebase is properly configured in `firebase-engagement.js`
-2. Check that Firestore is enabled in Firebase Console
-3. Verify security rules allow reads and writes
+1. Ensure Firebase is properly configured in `firebase-config.js`
+2. Check that `firebase-config.js` exists and has your actual Firebase credentials
+3. Check that Firestore is enabled in Firebase Console
+4. Verify security rules allow reads and writes
 
 ### Like Button Not Working
 
