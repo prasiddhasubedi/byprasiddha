@@ -56,7 +56,13 @@ This implementation adds real, persistent engagement features to the static poet
 
 ### Step 4: Configure Firestore Rules
 
-Set up security rules in Firestore:
+Set up security rules in Firestore to control access to your data.
+
+**Important Security Notes:**
+- Read access is intentionally public (`allow read: if true`) because this is a public website that displays engagement stats to all visitors
+- Write access is restricted to prevent abuse while allowing legitimate interactions
+- No authentication is required - the website works for anonymous users
+- See `FIRESTORE_STRUCTURE.md` for details on data structure and slug requirements
 
 #### For Testing (Recommended for Initial Setup)
 Use these more permissive rules first to ensure everything works:
@@ -279,9 +285,12 @@ The implementation already includes optimizations:
 ## Files
 
 - `/js/firebase-engagement.js` - Main engagement logic
+- `/js/firebase-config.js` - Firebase configuration (excluded from git)
 - `/css/engagement.css` - Engagement UI styles
 - `/engagement-template.html` - HTML template for integration
 - `/FIREBASE_SETUP.md` - This setup guide
+- `/FIRESTORE_STRUCTURE.md` - Detailed Firestore data structure documentation
+- `/TROUBLESHOOTING.md` - Troubleshooting guide for common issues
 
 ## Support
 
@@ -289,6 +298,8 @@ For issues or questions:
 1. Check Firebase Console for errors
 2. Review browser console logs
 3. Verify Firestore rules are correct
+4. See `/FIRESTORE_STRUCTURE.md` for data structure requirements
+5. See `/TROUBLESHOOTING.md` for specific error solutions
 4. Ensure Firebase configuration is accurate
 
 ## License
