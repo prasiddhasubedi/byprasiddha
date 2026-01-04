@@ -87,7 +87,7 @@ This guide will get you up and running with Firebase engagement features in **un
 
 3. Replace the example values with your config from Step 2:
    ```javascript
-   const firebaseConfig = {
+   window.firebaseConfig = {
        apiKey: "YOUR_ACTUAL_API_KEY",
        authDomain: "yourproject.firebaseapp.com",
        projectId: "yourproject",
