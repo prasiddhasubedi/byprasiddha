@@ -21,8 +21,6 @@ if (typeof window.firebaseConfig === 'undefined') {
   measurementId: "G-6CC0FXCQN1"
     };
 }
-// Use the config from window for consistency
-const firebaseConfig = window.firebaseConfig;
 
 // Initialize Firebase (using modular SDK v9+)
 let app, analytics, db;
@@ -41,13 +39,13 @@ async function initializeFirebase() {
 
         console.log('[FIREBASE] Starting initialization...');
         console.log('[FIREBASE] Config:', {
-            projectId: firebaseConfig.projectId,
-            authDomain: firebaseConfig.authDomain,
-            hasApiKey: !!firebaseConfig.apiKey
+            projectId: window.firebaseConfig.projectId,
+            authDomain: window.firebaseConfig.authDomain,
+            hasApiKey: !!window.firebaseConfig.apiKey
         });
 
         // Initialize Firebase App
-        app = firebase.initializeApp(firebaseConfig);
+        app = firebase.initializeApp(window.firebaseConfig);
         console.log('[FIREBASE] ✓ App initialized successfully');
 
         // Initialize Firestore
