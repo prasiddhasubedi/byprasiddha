@@ -1,10 +1,13 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyBI9yc2IrLQ_S5KW_doGtXNWX1883un_lw",
-  authDomain: "my-site-92874.firebaseapp.com",
-  projectId: "my-site-92874",
-  storageBucket: "my-site-92874.firebasestorage.app",
-  messagingSenderId: "575232040342",
-  appId: "1:575232040342:web:e4ce6274f43ba320a211b7",
-  measurementId: "G-6CC0FXCQN1"
+// Firebase Configuration Example
+// Copy this file to firebase-config.js and replace with your actual Firebase credentials
+// firebase-config.js is in .gitignore and will not be committed
+window.firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
 };
 

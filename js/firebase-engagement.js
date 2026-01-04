@@ -10,8 +10,8 @@
 // Firebase configuration - Can be loaded from external firebase-config.js
 // or replaced directly in this file with your actual Firebase config
 // Check if firebaseConfig is already defined (from external file)
-if (typeof firebaseConfig === 'undefined') {
-    var firebaseConfig = {
+if (typeof window.firebaseConfig === 'undefined') {
+    window.firebaseConfig = {
         apiKey: "YOUR_API_KEY",
         authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
         projectId: "YOUR_PROJECT_ID",
@@ -21,6 +21,8 @@ if (typeof firebaseConfig === 'undefined') {
         measurementId: "YOUR_MEASUREMENT_ID"
     };
 }
+// Use the config from window for consistency
+const firebaseConfig = window.firebaseConfig;
 
 // Initialize Firebase (using modular SDK v9+)
 let app, analytics, db;
