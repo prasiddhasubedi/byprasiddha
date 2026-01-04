@@ -1,5 +1,66 @@
 # Firebase Engagement Features - Troubleshooting Guide
 
+## Quick Reference: Common Issues
+
+### Issue 0: Missing Poem Content (THE SKY BENEATH MY FEET or Other Poems)
+
+**Symptoms:**
+- Poem page loads but shows no poem text
+- Engagement features (views, likes, comments) might work or not work
+- Page shows title and layout but missing stanzas/verses
+
+**Important:** This is usually NOT a Firestore/Firebase issue. The poem content and Firestore engagement data are **separate systems**.
+
+**Two Separate Systems:**
+1. **Poem Content** - Loaded from HTML or localStorage (handled by `/js/content-viewer.js`)
+2. **Engagement Data** - Stored in Firestore (handled by `/js/firebase-engagement.js`)
+
+**Solutions:**
+
+#### If Poem Text is Missing:
+1. **Check the HTML file** - The poem text should be embedded in the HTML:
+   - Open `/poetry/THE SKY BENEATH MY FEET/index.html`
+   - Look for the poem text in `<div class="poem-text">` section
+   - If text is there, it's not a content issue
+
+2. **Check Content Viewer** - The `content-viewer.js` tries to load from localStorage:
+   - Open browser console
+   - Look for `[ContentViewer]` messages
+   - If it says "Content not found", the poem needs to be in localStorage or HTML
+
+3. **Verify Poem Title Matches**:
+   - The folder name must match: `THE SKY BENEATH MY FEET`
+   - Case-sensitive
+   - Spaces matter (not %20 in folder name)
+
+#### If Engagement Features Not Working:
+- This IS a Firestore issue
+- See the other sections in this guide
+- Check Firestore document exists with slug: `poetry/THE SKY BENEATH MY FEET`
+- See `FIRESTORE_STRUCTURE.md` for slug requirements
+
+#### Debug Steps:
+1. Open browser console (F12)
+2. Look for these messages:
+   ```
+   [ContentViewer] Type: poetry, Title: THE SKY BENEATH MY FEET
+   [ContentViewer] Content found: THE SKY BENEATH MY FEET
+   ```
+3. If you see "Content not found", the poem isn't in localStorage
+4. If you see "Content found" but no text appears, check HTML rendering
+5. For Firestore issues, look for `[FIREBASE]` messages
+
+**Quick Fix:**
+- The poem text is already in the HTML file at `/poetry/THE SKY BENEATH MY FEET/index.html`
+- If it's not showing, check for JavaScript errors in console
+- The engagement features work independently of poem content
+
+**See Also:**
+- `FIRESTORE_STRUCTURE.md` - For Firestore slug and document structure
+- Issue 1 below - For Firestore permission issues
+
+---
+
 ## Common Issues and Solutions
 
 ### Issue 1: Pages Collection Not Created

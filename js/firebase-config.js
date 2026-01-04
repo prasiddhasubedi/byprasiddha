@@ -15,5 +15,5 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
-// Export the configuration if needed
-export default firebaseConfig;
+// Make configuration available globally
+window.firebaseConfig = firebaseConfig;

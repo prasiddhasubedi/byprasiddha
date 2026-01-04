@@ -21,8 +21,6 @@ if (typeof window.firebaseConfig === 'undefined') {
   measurementId: "G-6CC0FXCQN1"
     };
 }
-// Use the config from window for consistency
-const firebaseConfig = window.firebaseConfig;
 
 // Initialize Firebase (using modular SDK v9+)
 let app, analytics, db;
@@ -41,13 +39,13 @@ async function initializeFirebase() {
 
         console.log('[FIREBASE] Starting initialization...');
         console.log('[FIREBASE] Config:', {
-            projectId: firebaseConfig.projectId,
-            authDomain: firebaseConfig.authDomain,
-            hasApiKey: !!firebaseConfig.apiKey
+            projectId: window.firebaseConfig.projectId,
+            authDomain: window.firebaseConfig.authDomain,
+            hasApiKey: !!window.firebaseConfig.apiKey
         });
 
         // Initialize Firebase App
-        app = firebase.initializeApp(firebaseConfig);
+        app = firebase.initializeApp(window.firebaseConfig);
         console.log('[FIREBASE] ✓ App initialized successfully');
 
         // Initialize Firestore
@@ -225,6 +223,26 @@ async function trackPageView() {
             code: error.code,
             stack: error.stack
         });
+        
+        // Provide user-friendly error messages for common issues
+        if (error.code === 'permission-denied') {
+            console.error('[FIREBASE] ❌ PERMISSION DENIED');
+            console.error('[FIREBASE] This error means Firestore security rules are blocking the operation.');
+            console.error('[FIREBASE] Solutions:');
+            console.error('[FIREBASE] 1. Check your Firestore rules in Firebase Console');
+            console.error('[FIREBASE] 2. For testing, use permissive rules (see TROUBLESHOOTING.md)');
+            console.error('[FIREBASE] 3. Ensure rules allow: read (if true) and write with proper validation');
+            console.error('[FIREBASE] 4. See FIREBASE_SETUP.md for recommended rules');
+        } else if (error.code === 'unauthenticated') {
+            console.error('[FIREBASE] ❌ AUTHENTICATION REQUIRED');
+            console.error('[FIREBASE] This error means the operation requires authentication.');
+            console.error('[FIREBASE] Note: This website does not use Firebase Auth - this should not happen.');
+            console.error('[FIREBASE] Check your Firestore rules - they should allow unauthenticated access.');
+        } else if (error.code === 'unavailable') {
+            console.warn('[FIREBASE] ⚠️ SERVICE UNAVAILABLE');
+            console.warn('[FIREBASE] Firebase service might be temporarily unavailable or network issue.');
+            console.warn('[FIREBASE] The page will still work, but engagement features are disabled.');
+        }
     }
 }
 
@@ -318,7 +336,19 @@ async function handleLike() {
             message: error.message,
             code: error.code
         });
-        showNotification('Failed to like page', 'error');
+        
+        // Provide user-friendly error messages
+        if (error.code === 'permission-denied') {
+            console.error('[FIREBASE] ❌ PERMISSION DENIED - Cannot like page');
+            console.error('[FIREBASE] Check Firestore rules allow updating "likes" field');
+            showNotification('Unable to like page - please try again later', 'error');
+        } else if (error.code === 'not-found') {
+            console.error('[FIREBASE] ❌ PAGE DOCUMENT NOT FOUND');
+            console.error('[FIREBASE] The page document must be created first (happens on page view)');
+            showNotification('Unable to like page - please refresh and try again', 'error');
+        } else {
+            showNotification('Failed to like page', 'error');
+        }
     }
 }
 
@@ -439,6 +469,16 @@ async function loadComments() {
             message: error.message,
             code: error.code
         });
+        
+        // Provide user-friendly error messages
+        if (error.code === 'permission-denied') {
+            console.error('[FIREBASE] ❌ PERMISSION DENIED - Cannot load comments');
+            console.error('[FIREBASE] Check Firestore rules allow read access to pages collection');
+            const commentsList = document.getElementById('comments-list');
+            if (commentsList) {
+                commentsList.innerHTML = '<p class="engagement-error">Unable to load comments due to permission restrictions.</p>';
+            }
+        }
     }
 }
 
@@ -513,7 +553,20 @@ async function addComment(name, text) {
             message: error.message,
             code: error.code
         });
-        showNotification('Failed to add comment', 'error');
+        
+        // Provide user-friendly error messages
+        if (error.code === 'permission-denied') {
+            console.error('[FIREBASE] ❌ PERMISSION DENIED - Cannot add comment');
+            console.error('[FIREBASE] Check Firestore rules allow updating "comments" field');
+            showNotification('Unable to post comment - please try again later', 'error');
+        } else if (error.code === 'not-found') {
+            console.error('[FIREBASE] ❌ PAGE DOCUMENT NOT FOUND');
+            console.error('[FIREBASE] The page document must be created first (happens on page view)');
+            console.error('[FIREBASE] Try refreshing the page and commenting again');
+            showNotification('Unable to post comment - please refresh and try again', 'error');
+        } else {
+            showNotification('Failed to add comment', 'error');
+        }
         return false;
     }
 }
