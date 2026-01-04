@@ -7,16 +7,20 @@
 // FIREBASE CONFIGURATION & INITIALIZATION
 // ==========================================
 
-// Firebase configuration - Replace with your actual Firebase config
-const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
-    measurementId: "YOUR_MEASUREMENT_ID"
-};
+// Firebase configuration - Can be loaded from external firebase-config.js
+// or replaced directly in this file with your actual Firebase config
+// Check if firebaseConfig is already defined (from external file)
+if (typeof firebaseConfig === 'undefined') {
+    var firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID"
+    };
+}
 
 // Initialize Firebase (using modular SDK v9+)
 let app, analytics, db;

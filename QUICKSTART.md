@@ -78,26 +78,40 @@ This guide will get you up and running with Firebase engagement features in **un
 
 ## Step 4: Update Configuration (1 minute)
 
-1. Open `/js/firebase-engagement.js` in your code editor
-2. Find the `firebaseConfig` object at the top (around line 9)
-3. Replace the placeholder values with your config from Step 2:
+1. Copy the example config file:
+   ```bash
+   cp js/firebase-config.example.js js/firebase-config.js
+   ```
+
+2. Open `/js/firebase-config.js` in your code editor
+
+3. Replace the example values with your config from Step 2:
    ```javascript
    const firebaseConfig = {
        apiKey: "YOUR_ACTUAL_API_KEY",
        authDomain: "yourproject.firebaseapp.com",
-       // ... paste all your values here
+       projectId: "yourproject",
+       storageBucket: "yourproject.appspot.com",
+       messagingSenderId: "123456",
+       appId: "1:123456:web:abcdef",
+       measurementId: "G-XXXXXXX"
    };
    ```
+
 4. Save the file
+
+**Note:** The `firebase-config.js` file is in `.gitignore` to keep your credentials safe. Never commit this file to your repository.
 
 ## Step 5: Deploy & Test (2 minutes)
 
 1. **Commit and push your changes:**
    ```bash
-   git add js/firebase-engagement.js
-   git commit -m "Add Firebase configuration"
+   git add poetry/*/index.html
+   git commit -m "Enable Firebase engagement features"
    git push
    ```
+   
+   **Important:** Do NOT commit `js/firebase-config.js` - it's already in `.gitignore` for security.
 
 2. **Visit any poetry page on your live site**
    - Example: `https://yourdomain.com/poetry/IF%20STARS%20HAD%20WINDOWS/`
