@@ -510,6 +510,8 @@ async function loadComments() {
 
 /**
  * Add new comment
+ * Uses client-side timestamp (Date.now()) instead of serverTimestamp()
+ * to ensure timestamps are determined by the client
  */
 async function addComment(name, text) {
     if (!db) {
@@ -540,13 +542,15 @@ async function addComment(name, text) {
         const slug = getPageSlug();
         const pageRef = db.collection('pages').doc(slug);
         
+        // Create comment object with client-side timestamp (Date.now())
+        // This ensures timestamp is determined by the client instead of server
         const newComment = {
             name: name,
             text: text,
             timestamp: Date.now()
         };
         
-        console.log('[FIREBASE] Saving comment to Firestore...');
+        console.log('[FIREBASE] Saving comment to Firestore with client timestamp...');
         
         // Add comment to array
         await pageRef.update({

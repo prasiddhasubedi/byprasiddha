@@ -62,7 +62,7 @@ This implementation adds real, persistent engagement features to the static poet
 - **Minimalist form** with optional name and required text fields
 - **Input validation**: 3-500 character limit
 - **XSS protection**: Sanitizes all user inputs
-- Appends comments to Firestore array with server timestamps
+- Appends comments to Firestore array with client-side timestamps (Date.now())
 - Chronological display of all comments
 - Character count display and real-time validation
 - Logs comment event to Analytics
