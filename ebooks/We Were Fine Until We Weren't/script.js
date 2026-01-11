@@ -24,12 +24,25 @@
   const commentName = document.getElementById('commentName');
   const charCount = document.getElementById('charCount');
   const commentsContainer = document.getElementById('commentsContainer');
+  const coverImage = document.getElementById('coverImage');
+  const coverPlaceholder = document.getElementById('coverPlaceholder');
 
   // Initialize
   function init() {
     updateEngagementUI();
     attachEventListeners();
     loadComments();
+    handleCoverImage();
+  }
+
+  // Handle cover image loading
+  function handleCoverImage() {
+    if (coverImage && coverPlaceholder) {
+      coverImage.addEventListener('error', function() {
+        coverImage.style.display = 'none';
+        coverPlaceholder.style.display = 'flex';
+      });
+    }
   }
 
   // Load engagement data from localStorage
@@ -110,6 +123,14 @@
       if (overlay) {
         overlay.addEventListener('click', closeCommentModal);
       }
+      
+      // Prevent modal content clicks from bubbling to overlay
+      const modalContent = commentModal.querySelector('.modal-content');
+      if (modalContent) {
+        modalContent.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      }
     }
 
     // Submit comment
@@ -169,14 +190,21 @@
   // Fallback share
   function fallbackShare() {
     const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      showNotification('Link copied to clipboard!');
-      engagementData.shares++;
-      saveEngagementData();
-      animateButton(shareBtn);
-    }).catch(() => {
-      showNotification('Unable to copy link. Please copy manually.');
-    });
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(url).then(() => {
+        showNotification('Link copied to clipboard!');
+        engagementData.shares++;
+        saveEngagementData();
+        animateButton(shareBtn);
+      }).catch((err) => {
+        console.error('Failed to copy:', err);
+        showNotification('Unable to copy link. Please copy manually: ' + url);
+      });
+    } else {
+      // Fallback for browsers without Clipboard API
+      showNotification('Share URL: ' + url);
+    }
   }
 
   // Open comment modal

@@ -53,9 +53,9 @@
     <!-- Cover Photo Section -->
     <section class="cover-section">
       <div class="cover-image">
-        <img src="cover.jpg" alt="We Were Fine Until We Weren't Cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <div class="cover-placeholder">
-          <div class="placeholder-icon">📖</div>
+        <img src="cover.jpg" alt="We Were Fine Until We Weren't Cover" id="coverImage">
+        <div class="cover-placeholder" id="coverPlaceholder">
+          <div class="placeholder-icon" aria-hidden="true">📖</div>
           <div class="placeholder-title">We Were Fine<br>Until We Weren't</div>
           <div class="placeholder-subtitle">Real Stories, Real People</div>
         </div>
@@ -109,7 +109,7 @@
     <section class="chapters-section">
       <h2>Chapters</h2>
       <div class="chapters-note">
-        <p>📚 The chapters will be available soon. Each story is being carefully curated to honor the experiences shared.</p>
+        <p><span aria-hidden="true">📚</span> The chapters will be available soon. Each story is being carefully curated to honor the experiences shared.</p>
       </div>
       
       <div class="chapters-list">
