@@ -13,6 +13,7 @@
         if (typeof window.contentManager !== 'undefined') {
             console.log('[INIT] ContentManager available, initializing defaults');
             window.contentManager.initializeDefaultPoems();
+            window.contentManager.initializeDefaultEbooks();
         } else {
             console.log('[INIT] Waiting for ContentManager...');
             setTimeout(initWhenReady, 100);

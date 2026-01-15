@@ -196,7 +196,10 @@ class ContentManager {
         const newEbook = {
             id: this.generateId(),
             ...sanitized,
-            coverImageUrl: ebook.coverImageUrl || '', // Cover image URL is not sanitized
+            coverImageUrl: ebook.coverImageUrl || '',
+            url: ebook.url || '',
+            emoji: ebook.emoji || '📖',
+            readingTime: ebook.readingTime || 'Quick read',
             dateCreated: new Date().toISOString(),
             dateModified: new Date().toISOString(),
             postedDate: ebook.postedDate || new Date().toISOString()
@@ -510,6 +513,75 @@ class ContentManager {
         });
 
         console.log('[ContentManager] Added', defaultPoems.length, 'default poems');
+        return true;
+    }
+
+    // ==========================================
+    // INITIALIZE DEFAULT EBOOKS
+    // ==========================================
+
+    initializeDefaultEbooks() {
+        // Only initialize if ebooks array is empty
+        if (this.data.ebooks && this.data.ebooks.length > 0) {
+            console.log('[ContentManager] Ebooks already exist, skipping initialization');
+            return false;
+        }
+
+        console.log('[ContentManager] Initializing default ebooks');
+
+        const defaultEbooks = [
+            {
+                title: "Beneath the Surface",
+                description: "A psychological drama about four strangers at a retreat, each harboring secrets that threaten to destroy their lives",
+                url: "beneath-the-surface.html",
+                genre: "Psychological Drama",
+                author: "Prasiddha Subedi",
+                tags: "psychological, drama, secrets, mystery",
+                readingTime: "~7 hours",
+                emoji: "🎭",
+                postedDate: new Date('2025-12-01T00:00:00Z').toISOString()
+            },
+            {
+                title: "Echoes of Tomorrow",
+                description: "A science fiction journey through time where Dr. Elena Reeves receives mysterious messages from the future",
+                url: "echoes-of-tomorrow.html",
+                genre: "Science Fiction",
+                author: "Prasiddha Subedi",
+                tags: "sci-fi, time-travel, future, mystery",
+                readingTime: "~6 hours",
+                emoji: "📡",
+                postedDate: new Date('2025-12-01T00:00:00Z').toISOString()
+            },
+            {
+                title: "The Mountain Keeper",
+                description: "A fantasy tale where ancient magic meets modern destiny as Kira must become the mountain's keeper",
+                url: "the-mountain-keeper.html",
+                genre: "Fantasy",
+                author: "Prasiddha Subedi",
+                tags: "fantasy, magic, adventure, destiny",
+                readingTime: "~8 hours",
+                emoji: "⛰️",
+                postedDate: new Date('2025-12-01T00:00:00Z').toISOString()
+            },
+            {
+                title: "We Were Fine Until We Weren't",
+                description: "This ebook is made by collecting real stories of real people. Their words, their silences, their almosts and afters.",
+                url: "We Were Fine Until We Weren't/index.html",
+                genre: "Short Stories",
+                author: "Prasiddha Subedi",
+                tags: "real-stories, romance, heartbreak, collection",
+                readingTime: "~4 hours",
+                emoji: "💔",
+                postedDate: new Date('2025-01-01T00:00:00Z').toISOString()
+            }
+        ];
+
+        // Add each default ebook
+        defaultEbooks.forEach(ebook => {
+            this.addEbook(ebook);
+        });
+
+        console.log('[ContentManager] Added', defaultEbooks.length, 'default ebooks');
         return true;
     }
 }
