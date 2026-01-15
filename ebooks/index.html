@@ -84,10 +84,10 @@
                 <h2>Available Ebooks</h2>
                 <div id="ebooks-content">
                     <div style="text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 15px; margin: 2rem 0;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.6;">📚</div>
-                        <h3 style="font-size: 2rem; color: #764ba2; margin-bottom: 1rem; font-weight: 600;">On the way</h3>
+                        <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.6;">⏳</div>
+                        <h3 style="font-size: 2rem; color: #764ba2; margin-bottom: 1rem; font-weight: 600;">Loading...</h3>
                         <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-                            Exciting new ebooks are being crafted. Stay tuned for immersive stories that will transport you to extraordinary worlds.
+                            Loading ebooks, please wait...
                         </p>
                     </div>
                 </div>
@@ -200,6 +200,15 @@
                 
                 if (!ebooksData || ebooksData.length === 0) {
                     console.log('[DEBUG] No ebooks found, showing default message');
+                    ebooksContent.innerHTML = `
+                        <div style="text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 15px; margin: 2rem 0;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.6;">📚</div>
+                            <h3 style="font-size: 2rem; color: #764ba2; margin-bottom: 1rem; font-weight: 600;">On the way</h3>
+                            <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                                Exciting new ebooks are being crafted. Stay tuned for immersive stories that will transport you to extraordinary worlds.
+                            </p>
+                        </div>
+                    `;
                     return;
                 }
                 
