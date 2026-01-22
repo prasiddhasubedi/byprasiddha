@@ -876,10 +876,8 @@ class ModalManager {
         }
     }
 
-
-            loadArticlesList();
-            loadDashboardData();
-            this.close();
+    // Handle eBook submission
+    handleEbookSubmit() {
         const form = document.getElementById('ebookForm');
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);
