@@ -245,6 +245,9 @@ async function enhancedPhotoSubmit(form, isEdit, originalData) {
                 showToast('Photo published successfully!', 'success');
                 window.modalManager.close();
                 
+                if (typeof loadPhotoGallery === 'function') {
+                    loadPhotoGallery();
+                }
                 if (typeof loadDashboardData === 'function') {
                     loadDashboardData();
                 }
@@ -261,6 +264,9 @@ async function enhancedPhotoSubmit(form, isEdit, originalData) {
             showToast('Photo saved locally!', 'success');
             window.modalManager.close();
             
+            if (typeof loadPhotoGallery === 'function') {
+                loadPhotoGallery();
+            }
             if (typeof loadDashboardData === 'function') {
                 loadDashboardData();
             }
