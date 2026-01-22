@@ -876,26 +876,10 @@ class ModalManager {
         }
     }
 
-                setTimeout(() => {
-                    showContentPageInstructions('articles', data.title);
-                }, 2000);
-            }
 
             loadArticlesList();
             loadDashboardData();
             this.close();
-        } catch (error) {
-            showToast('Error saving article', 'error');
-        } finally {
-            if (submitBtn) {
-                submitBtn.classList.remove('btn-loading');
-                submitBtn.disabled = false;
-            }
-        }
-    }
-
-    // Handle eBook Submit
-    handleEbookSubmit() {
         const form = document.getElementById('ebookForm');
         const formData = new FormData(form);
         const data = Object.fromEntries(formData);

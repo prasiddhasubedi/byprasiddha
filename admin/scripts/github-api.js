@@ -110,7 +110,8 @@ class GitHubAPI {
         try {
             const body = {
                 message,
-                content: btoa(unescape(encodeURIComponent(content))), // Properly encode UTF-8 to base64
+                content: btoa(encodeURIComponent(content).replace(/%([0-9A-F]{2})/g,
+                    (match, p1) => String.fromCharCode('0x' + p1))), // Properly encode UTF-8 to base64
                 branch: this.branch
             };
 
@@ -215,11 +216,13 @@ class GitHubAPI {
     slugify(text) {
         return text
             .toString()
-            .toUpperCase()
+            .toLowerCase()
             .trim()
-            .replace(/\s+/g, ' ')
-            .replace(/[^\w\s-]/g, '')
-            .replace(/\s/g, ' ');
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars except -
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
     }
 
     // Helper: Format date
