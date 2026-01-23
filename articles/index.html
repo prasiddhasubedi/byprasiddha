@@ -84,7 +84,7 @@
                 <h2>Featured Articles</h2>
                 <div id="articles-content">
                     <div style="text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 15px; margin: 2rem 0;">
-                        <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.6;">📝</div>
+                        <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.6;">ð</div>
                         <h3 style="font-size: 2rem; color: #764ba2; margin-bottom: 1rem; font-weight: 600;">On the way</h3>
                         <p style="color: #666; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
                             Thought-provoking articles are being written. Check back soon for insightful perspectives on culture, creativity, and life.
@@ -94,10 +94,21 @@
             </div>
 
             <div style="margin-top: 30px;" data-aos="fade-up">
-                <a href="../index.html" class="back-link">← Back to Home</a>
+                <a href="../index.html" class="back-link">â Back to Home</a>
             </div>
         </div>
-    </main>
+    
+            <div class="works-list">
+                <h2>Available Articles</h2>
+                <ul id="articles-list">
+                    <li data-aos="fade-up" data-aos-delay="50">
+                        <a href="ceavcev/index.html">CEAVCEV</a>
+                        <p style="color: #666; margin-top: 5px; font-size: 0.95rem;">VEVVREVVVVVVVVVVVVVVVVVV</p>
+                        <p style="color: #999; margin-top: 3px; font-size: 0.85rem;">📅 January 23, 2026</p>
+                    </li>
+                </ul>
+            </div>
+</main>
 
     <!-- Premium Footer -->
     <footer class="premium-footer">
@@ -195,9 +206,9 @@
                                 <h3 style="color: #764ba2; margin-bottom: 0.5rem; font-size: 1.5rem;">${escapeHTML(article.title)}</h3>
                                 <p style="color: #666; margin: 0.5rem 0; font-size: 0.95rem;">${escapeHTML(excerpt)}</p>
                                 <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1rem; font-size: 0.85rem; color: #999;">
-                                    <span>📅 ${formattedDate}</span>
-                                    ${article.author ? `<span>✍️ ${escapeHTML(article.author)}</span>` : ''}
-                                    ${article.tags ? `<span>🏷️ ${escapeHTML(article.tags)}</span>` : ''}
+                                    <span>ð ${formattedDate}</span>
+                                    ${article.author ? `<span>âï¸ ${escapeHTML(article.author)}</span>` : ''}
+                                    ${article.tags ? `<span>ð·ï¸ ${escapeHTML(article.tags)}</span>` : ''}
                                 </div>
                             </a>
                         </li>
