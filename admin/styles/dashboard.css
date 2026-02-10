@@ -692,11 +692,25 @@ body {
     overflow: hidden;
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    position: relative;
 }
 
 .photo-item:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
+}
+
+.photo-featured-badge {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #fff;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    z-index: 1;
 }
 
 .photo-item-image {
@@ -710,6 +724,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.photo-actions {
+    display: flex;
+    gap: 0.5rem;
 }
 
 /* Toast Notification */

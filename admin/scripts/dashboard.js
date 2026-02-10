@@ -336,15 +336,23 @@ function loadPhotoGallery() {
     
     container.innerHTML = photos.map(photo => `
         <div class="photo-item" data-id="${photo.id}">
+            ${photo.featured ? '<div class="photo-featured-badge">⭐ Featured</div>' : ''}
             <img src="${photo.url}" alt="${escapeHTML(photo.title || 'Photo')}" class="photo-item-image">
             <div class="photo-item-footer">
                 <span class="photo-title">${escapeHTML(photo.title || 'Untitled')}</span>
-                <button class="btn-icon-small delete" onclick="deletePhoto('${photo.id}')" title="Delete">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="3 6 5 6 21 6"></polyline>
-                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                    </svg>
-                </button>
+                <div class="photo-actions">
+                    <button class="btn-icon-small ${photo.featured ? 'featured' : ''}" onclick="toggleFeatured('photography', '${photo.id}')" title="${photo.featured ? 'Unfeature' : 'Feature'}">
+                        <svg viewBox="0 0 24 24" fill="${photo.featured ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </button>
+                    <button class="btn-icon-small delete" onclick="deletePhoto('${photo.id}')" title="Delete">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
     `).join('');
