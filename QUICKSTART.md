@@ -114,7 +114,7 @@ This guide will get you up and running with Firebase engagement features in **un
    **Important:** Do NOT commit `js/firebase-config.js` - it's already in `.gitignore` for security.
 
 2. **Visit any poetry page on your live site**
-   - Example: `https://yourdomain.com/poetry/IF%20STARS%20HAD%20WINDOWS/`
+   - Example: `https://yourdomain.com/poetry/if-stars-had-windows/`
 
 3. **Test the features:**
    - ✅ View count should increment
