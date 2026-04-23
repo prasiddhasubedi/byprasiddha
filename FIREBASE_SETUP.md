@@ -18,7 +18,7 @@ This implementation adds real, persistent engagement features to the static poet
 ### 3. **Comments System**
 - Minimalist comment form with name (optional) and text (required)
 - Validates against empty or spam-length comments (3-500 characters)
-- Appends comments to Firestore with timestamps
+- Appends comments to Firestore with client-side timestamps (Date.now())
 - Loads and renders comments in chronological order
 - XSS protection through input sanitization
 
